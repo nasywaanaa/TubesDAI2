@@ -33,7 +33,7 @@ Repository ini berisi implementasi untuk Tugas Besar 2 mata kuliah **IF3070 Dasa
 1. Untuk menjalankan notebook utama :
 
    ```bash
-   jupyter notebook IF3070_DAI___Tugas_Besar_2_Notebook_Template.ipynb
+   jupyter notebook IF3070_Tubes2_Notebook_Kelompok11
    ```
 
 2. Jalankan semua sel di dalam notebook sesuai dengan urutan untuk preprocessing, feature engineering, training model (KNN dan Naive Bayes), dan evaluasi
