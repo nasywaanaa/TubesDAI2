@@ -1,6 +1,3 @@
-import pickle
-import numpy as np
-
 class GaussianNaiveBayes:
     def __init__(self):
         self.fitur = None
@@ -61,8 +58,3 @@ class GaussianNaiveBayes:
     def score(self, X, y):
         prediksi = self.predict(X)
         return np.mean(prediksi == np.array(y))
-    
-    def save(self, path):
-        """Menyimpan model ke file."""
-        with open(path, 'wb') as file:
-            pickle.dump(self, file)
