@@ -1,5 +1,5 @@
-
-
+import pickle
+import numpy as np
 
 class GaussianNaiveBayes:
     def __init__(self):
@@ -49,7 +49,7 @@ class GaussianNaiveBayes:
                 probabilitas_posterior[kategori] = np.log(self.probabilitas_prior[kategori])
                 # Tambahkan log likelihood untuk setiap fitur
                 for indeks_fitur in range(self.fitur.shape[1]):
-                    nilai_pdf = self.gaussian_pdf(
+                    nilai_pdf = self.gaussian(
                         sampel[indeks_fitur], self.mean_fitur[kategori][indeks_fitur], self.varians_fitur[kategori][indeks_fitur]
                     )
                     probabilitas_posterior[kategori] += np.log(nilai_pdf + 1e-9)  # Tambahkan eps untuk menghindari log(0)
@@ -61,3 +61,8 @@ class GaussianNaiveBayes:
     def score(self, X, y):
         prediksi = self.predict(X)
         return np.mean(prediksi == np.array(y))
+    
+    def save(self, path):
+        """Menyimpan model ke file."""
+        with open(path, 'wb') as file:
+            pickle.dump(self, file)
